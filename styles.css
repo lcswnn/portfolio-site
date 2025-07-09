@@ -1,11 +1,11 @@
 :root {
-  --background-color: #db4928;
+  --background-color: #f5451e;
   --red: #FE6D73;
   --blue: #2994bc;
   --green : #19af89;
   --yellow: #FFCB77;
   --charcoal: #191e22;
-  --hover: #d0ba79;
+  --hover: #f0ca82;
 }
 
 .dm-serif-text-regular {
@@ -80,6 +80,16 @@ body:hover {
   align-items: center;
   padding: 30px;
   color: var(--charcoal);
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: fadeInDown 0.5s ease-out forwards;
+}
+
+@keyframes fadeInDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 #nav-bar nav {
@@ -215,166 +225,6 @@ body:hover {
   cursor: none;
 }
 
-.music-player {
-  background-color: var(--background-color);
-  border-radius: 25px;
-  padding: 8px 16px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  min-width: 300px;
-  max-width: 440px;
-  height: 50px;
-  border: 3px solid var(--charcoal);
-  cursor: none;
-}
-
-.player-controls {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.control-btn {
-  background: rgba(255, 255, 255, 0.2);
-  border: 2px solid var(--charcoal);
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: none;
-  transition: all 0.3s ease;
-  color: var(--charcoal);
-  font-size: 14px;
-  font-weight: bold;
-}
-
-.play-btn {
-  background: var(--background-color);
-  color: var(--charcoal);
-  width: 36px;
-  height: 36px;
-  font-size: 16px;
-  border: 3px solid var(--charcoal);
-}
-
-.play-btn:hover {
-  background: var(--yellow);
-  color: var(--charcoal);
-}
-
-.prev-btn:hover {
-  background-color: var(--red);
-}
-
-.next-btn:hover {
-  background-color: var(--blue);
-}
-
-.song-info {
-  flex: 1;
-  color: var(--background-color);
-  text-align: center;
-  min-width: 0;
-  font-family: "DM Serif Text", serif;
-}
-
-.song-title {
-  font-size: 22px;
-  font-weight: 800;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin-bottom: 2px;
-  color: var(--charcoal);
-}
-
-.song-artist {
-  font-size: 15px;
-  opacity: 0.9;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  color: var(--charcoal);
-}
-
-.progress-container {
-  width: 70px;
-  height: 6px;
-  background: rgba(254, 249, 239, 0.3);
-  border-radius: 3px;
-  overflow: hidden;
-  cursor: none;
-  border: 1px solid var(--charcoal);
-}
-
-.progress-bar {
-  height: 100%;
-  background: var(--yellow);
-  border-radius: 3px;
-  transition: width 0.1s ease;
-  width: 0%;
-}
-
-.volume-container {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.volume-slider {
-  width: 60px;
-  height: 6px;
-  background: rgba(254, 249, 239, 0.3);
-  border-radius: 3px;
-  outline: none;
-  cursor: none;
-  appearance: none;
-  border: 1px solid var(--charcoal);
-}
-
-.volume-slider::-webkit-slider-thumb {
-  appearance: none;
-  width: 14px;
-  height: 14px;
-  background: var(--yellow);
-  border-radius: 50%;
-  cursor: none;
-  border: 2px solid var(--charcoal);
-}
-
-.volume-slider::-moz-range-thumb {
-  width: 14px;
-  height: 14px;
-  background: var(--yellow);
-  border-radius: 50%;
-  cursor: none;
-  border: 2px solid var(--charcoal);
-}
-
-.volume-icon {
-  color: var(--background-color);
-  font-size: 12px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-.music-player-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-}
-
-.music-title {
-  font-size: 1.9rem;
-  color: var(--charcoal);
-  margin-bottom: 10px;
-  text-align: center;
-}
-
 #content {
   margin-top: 50px;
 }
@@ -387,28 +237,70 @@ body:hover {
 
 #Welcome h1 {
   font-size: 3.8rem;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeIn 0.5s ease-out forwards;
 }
 
-#Welcome img {
-  object-fit: cover;
+#Welcome .image-container {
+  position: relative;
   width: 350px;
   height: 350px;
   border-radius: 50%;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border: var(--charcoal) 8px solid;
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden; /* Important for containing the shimmer */
+}
+
+.image-container img {
+  object-fit: cover;
+  object-position: center 20%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  opacity: 0;
+  transform: translateY(30px) translateZ(0);
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.image-container .shimmer-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 25% 25%, 
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.6) 15%,
+    rgba(255, 255, 255, 0.3) 35%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+@keyframes fadeIn {
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
 }
 
 #Welcome p {
   font-size: 1.7rem;
   margin-bottom: 120px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeIn 0.5s ease-out forwards;
 }
 
 #Projects {
   text-align: center;
   color: var(--charcoal);
-  border: var(--red) 8px solid;
   border-radius: 2rem;
   padding: 15px;
 }
@@ -434,7 +326,6 @@ body:hover {
 #Experience {
   text-align: center;
   margin-top: 50px;
-  border: var(--blue) 8px solid;
   border-radius: 2rem;
   color: var(--charcoal);
   padding: 15px;
@@ -451,7 +342,6 @@ body:hover {
 #About {
   text-align: center;
   margin-top: 50px;
-  border: var(--green) 8px solid;
   border-radius: 2rem;
   color: var(--charcoal);
   padding: 15px;
@@ -468,7 +358,6 @@ body:hover {
 #Contact {
   text-align: center;
   margin-top: 50px;
-  border: var(--yellow) 8px solid;
   border-radius: 2rem;
   color: var(--charcoal);
   padding: 15px;
@@ -481,4 +370,6 @@ body:hover {
 #Contact p {
   font-size: 1.7rem;
 }
+
+
 

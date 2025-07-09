@@ -140,4 +140,34 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   initializePlayer();
+
+  // Scroll progress bar
+  function updateScrollProgress() {
+    const scrollTop = window.pageYOffset;
+    const docHeight = document.body.offsetHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    document.querySelector('.progress-bar-scroll').style.width = scrollPercent + '%';
+  }
+
+  window.addEventListener('scroll', updateScrollProgress);
+
+  // Intersection Observer for scroll animations
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+      }
+    });
+  }, observerOptions);
+
+  // Observe all sections
+  document.querySelectorAll('#Projects, #Experience, #About, #Contact').forEach(section => {
+    section.classList.add('fade-in-up');
+    observer.observe(section);
+  });
 });

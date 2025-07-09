@@ -23,38 +23,25 @@
           <li id="contact-nav"><a href="#Contact">Contact</a></li>
         </ul>
       </nav>
-      <!-- <div class="music-player-section">
-        <h3 class="music-title dm-serif-text-regular">Music Player</h3>
-        <div class="music-player">
-          <div class="player-controls">
-            <button class="control-btn prev-btn" onclick="previousSong()">⏮</button>
-            <button class="control-btn play-btn" onclick="togglePlayPause()">▶</button>
-            <button class="control-btn next-btn" onclick="nextSong()">⏭</button>
-          </div>
-          <div class="song-info">
-            <div class="song-title">No Song Selected</div>
-            <div class="song-artist">Unknown Artist</div>
-          </div>
-          <div class="progress-container" onclick="setProgress(event)">
-            <div class="progress-bar"></div>
-          </div>
-          <div class="volume-container">
-            <span class="volume-icon">🔈</span>
-            <input type="range" class="volume-slider" min="0" max="100" value="50" oninput="setVolume(this.value)">
-          </div>
-        </div>
-      </div> -->
     </div>
   </header>
-  <body>
+  <body class="crt">
+    <div class="scan-lines"></div>
+    <div class="parallax-bg"></div>
+    <div class="progress-bar-scroll"></div>
     <div id="content">
       <div id="Welcome">
-        <img
-          src="images/pfp2.jpeg"
-          alt="Portfolio Header Image"
-          id="profile-image"
-        />
-        <h1 class="dm-serif-text-regular">Lucas Waunn - Portfolio</h1>
+        <div class="image-container">
+          <img
+            src="images/gpt-img2.png"
+            alt="Portfolio Header Image"
+            id="profile-image"
+          />
+          <div class="shimmer-overlay"></div>
+        </div>
+        <h1 class="dm-serif-text-regular holographic">
+          Lucas Waunn - Portfolio
+        </h1>
         <p class="dm-serif-text-regular">
           This is a simple portfolio site that brings all my work experience,
           projects, personal life, and interests all into one place.
